@@ -1,6 +1,6 @@
 ### `whoami`
 
-**Mayank Bisht** — Computer Science & Engineering undergrad building software with a focus on browser internals, frontend architecture, and creative systems.
+**Mayank Bisht** - Computer Science & Engineering undergrad building software with a focus on browser internals, frontend architecture, and creative systems.
 
 I prefer understanding moving parts from first principles rather than stitching together black boxes.
 
