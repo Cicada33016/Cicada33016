@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+preview.html
+rendered-preview.png
+*-preview.png
+*-static.svg
+.DS_Store
+Thumbs.db
