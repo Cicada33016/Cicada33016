@@ -24,12 +24,12 @@ LINE_H = 20.5
 BG = "#0d1117"
 BG2 = "#111722"
 FRAME = "#30363d"
-MUTED = "#7d8590"
-INK = "#c9d1d9"
-KEY = "#ffa657"      # orange keys (matches Andrew)
-SECTION = "#58a6ff"  # blue section headers
+MUTED = "#8b949e"
+INK = "#e6edf3"
+KEY = "#8b949e"      # muted architectural gray for labels
+SECTION = "#c9d1d9"  # crisp editorial section headers
 GREEN = "#3fb950"
-ACCENT = "#22d3ee"
+ACCENT = "#58a6ff"
 
 # ===========================================================================
 #  EDIT THIS  -- your info panel. It re-lays-out automatically; if it gets too
@@ -47,19 +47,19 @@ HOST = "mayank"   # shown as  mayank@github  in the header
 
 ROWS = [
     ("host",),
-    ("kv", "Undergrad", "CS & Engineering"),
-    ("kv", "Focus", "Browser Internals · Architecture"),
-    ("kv", "Site", "meet-precision.vercel.app"),
-    ("kv", "GitHub", "@Cicada33016"),
+    ("sec", "CURRENT FOCUS"),
+    ("kv", "Role", "CS & Engineering · Browser Architecture"),
+    ("kv", "Building", "Learning Automation Suites (Chrome MV3)"),
+    ("kv", "Exploring", "Canvas Pipelines · Web Performance"),
     ("gap",),
-    ("sec", "Stack"),
-    ("kv", "Core", "JavaScript (ES6+), TypeScript, C/C++"),
-    ("kv", "Frontend", "Next.js 15, React 19, GSAP, Framer Motion"),
-    ("kv", "Browser", "Chrome Extensions (MV3), DOM Observers"),
-    ("kv", "Tooling", "Canvas API, REST & GraphQL, Node.js, Git"),
+    ("sec", "TECHNICAL STACK"),
+    ("kv", "Languages", "JavaScript (ES6+), TypeScript, C/C++, Python"),
+    ("kv", "Frontend", "React 19, Next.js 15, Canvas API, GSAP"),
+    ("kv", "Browser", "Extensions (MV3), DOM Observers, CDP"),
+    ("kv", "Systems", "Node.js, REST & GraphQL APIs, Git, Linux"),
     ("gap",),
-    ("sec", "Selected Work"),
-    ("bul", "Coursera Assistant — AI & automation suite (MV3)"),
+    ("sec", "SELECTED WORK"),
+    ("bul", "Coursera Assistant — AI automation suite (MV3)"),
     ("bul", "Meet Precision — 250-frame canvas motion pipeline"),
 ]
 
@@ -90,10 +90,10 @@ parts = [
     f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{FRAME}"/>',
     f'<line x1="0" y1="{TITLEBAR_H}" x2="{W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>',
 ]
-for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
-    parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
+for i, dotcol in enumerate(["#30363d", "#30363d", "#30363d"]):
+    parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="4.5" fill="{dotcol}"/>')
 parts.append(f'<text x="{W/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
-             f'text-anchor="middle">{esc(HOST)}@github: ~$ neofetch</text>')
+             f'text-anchor="middle">{esc(HOST)}@github: ~$ cat profile.txt</text>')
 
 y = TITLEBAR_H + 30
 for i, row in enumerate(ROWS):
@@ -111,9 +111,10 @@ for i, row in enumerate(ROWS):
                  f'stroke="{FRAME}" stroke-opacity="0.8"/>')
     elif kind == "sec":
         title = esc(row[1])
+        rule_start = KEY_X + 30 + len(row[1]) * 8
         inner = (f'<text x="{KEY_X}" y="{y:.1f}" fill="{SECTION}" font-size="12.5" font-weight="700">'
                  f'&#8212; {title}</text>'
-                 f'<line x1="{KEY_X + 12 + len(row[1])*8}" y1="{y-4:.1f}" x2="{W-PAD}" y2="{y-4:.1f}" '
+                 f'<line x1="{rule_start}" y1="{y-4:.1f}" x2="{W-PAD}" y2="{y-4:.1f}" '
                  f'stroke="{FRAME}" stroke-opacity="0.8"/>')
     elif kind == "kv":
         key, val = esc(row[1]), esc(row[2])

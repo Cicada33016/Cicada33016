@@ -27,14 +27,14 @@ LEFT_LABEL_W = 30
 TOP_LABEL_H = 20
 TITLEBAR_H = 30
 
-BG = "#0a0e14"
-BG2 = "#0d1420"
-FRAME = "#1f6feb"
-MUTED = "#7d8590"
+BG = "#0d1117"
+BG2 = "#111722"
+FRAME = "#30363d"
+MUTED = "#8b949e"
 TEXT = "#e6edf3"
-ACCENT = "#22d3ee"
+ACCENT = "#58a6ff"
 GREEN = "#39d353"
-GOLD = "#f2cc60"
+GOLD = "#e6edf3"
 
 # reveal timing (one-shot)
 COL_T = 0.018   # per-column delay contribution (left -> right sweep)
@@ -122,10 +122,10 @@ def render(data):
         f'fill="none" stroke="{FRAME}" stroke-width="1" stroke-opacity="0.55"/>',
         f'<line x1="0" y1="{TITLEBAR_H}" x2="{canvas_w}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.35"/>',
     ]
-    for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
-        parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
+    for i, dotcol in enumerate(["#30363d", "#30363d", "#30363d"]):
+        parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="4.5" fill="{dotcol}"/>')
     parts.append(f'<text x="{canvas_w/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
-                 f'text-anchor="middle">mayank@github: ~/contributions --graph</text>')
+                 f'text-anchor="middle">mayank@github: ~/contributions</text>')
 
     grid_top = TITLEBAR_H + TOP_LABEL_H
     grid_left = PAD + LEFT_LABEL_W
@@ -186,7 +186,7 @@ def render(data):
                  f'<tspan fill="{MUTED}">   &#183;   longest </tspan>'
                  f'<tspan fill="{ACCENT}" font-weight="700">{ls} days</tspan></text>')
     parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="12" fill="{MUTED}" text-anchor="end">'
-                 f'best day <tspan fill="{GOLD}" font-weight="700">{best["count"]}</tspan> on {best["date"]}</text>')
+                 f'best day: {best["count"]} on {best["date"]}</text>')
 
     parts.append("</svg>")
     return "".join(parts)
